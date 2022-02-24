@@ -17,4 +17,4 @@ client.on("messageCreate", message => {
     }
 });
 
-client.login(config.BOT_TOKEN);
+client.login(config.BOT_TOKEN)
