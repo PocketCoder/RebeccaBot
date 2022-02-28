@@ -45,7 +45,7 @@ client.on("messageCreate", async message => {
         const list = await Suggestion.find({}).exec();
         var reply = 'Well, from what I can see we have:\n';
         list.forEach((e) => {
-            reply += `${e.book} by ${e.author}, suggested by ${e.username}\n`;
+            reply += `1. ${e.book} by ${e.author}, suggested by ${e.username}\n`;
         });
         message.reply(reply);
     }
