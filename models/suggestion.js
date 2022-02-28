@@ -5,6 +5,7 @@ const suggestSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.String,
         required: true
     },
+    username: mongoose.SchemaTypes.String,
     book: mongoose.SchemaTypes.String,
     author: mongoose.SchemaTypes.String
 });

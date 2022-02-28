@@ -29,10 +29,10 @@ client.on("messageCreate", async message => {
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
 
-    if (command === "suggestion") {
+    if (command === 'suggestion') {
         const title = args.slice(0, args.indexOf('by')).join(" ");
         const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
-        Suggestion.findOneAndUpdate({userId: message.author.id}, {book: title, author: author}, {upsert: true}, (e) => {
+        Suggestion.findOneAndUpdate({userId: message.author.id}, {username: message.author.username, book: title, author: author}, {upsert: true}, (e) => {
             if (e === null) {
                 message.reply('Got it, saved it.');
             } else {
@@ -41,6 +41,13 @@ client.on("messageCreate", async message => {
         });
         // const newSuggest = await Suggestion.create({userId: message.author.id, book: title, author: author});
         // const saveSuggest = await newSuggest.save();
+    } else if (command === 'list') {
+        const list = await Suggestion.find({}).exec();
+        var reply = 'Well, from what I can see we have:\n';
+        list.forEach((e) => {
+            reply += `${e.book} by ${e.author}, suggested by ${e.username}\n`;
+        });
+        message.reply(reply);
     }
 });
 
