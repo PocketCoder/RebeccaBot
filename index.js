@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const Suggestion = require('./models/suggestion.js');
 const History = require('./models/history.js');
+const Counter = require('./models/counter.js');
 
 const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
 const prefix = "!";
@@ -52,7 +53,6 @@ client.on("messageCreate", async message => {
         // TODO: Make a Mod only command
         const list = await Suggestion.find({}).exec();
         const choice = Math.floor(Math.random() * list.length);
-        message.reply(`This month's choice is ${list[choice].username}'s choice: ${list[choice].book} by ${list[choice].author}!`);
         const date = `${new Date().getMonth().toString()}/${new Date().getFullYear().toString()}`;
         const bom = new History({
             username: list[choice].username,
@@ -61,7 +61,15 @@ client.on("messageCreate", async message => {
             date: date
         });
         await bom.save();
-        // TODO: Increase user counter.
+        var newCounter;
+        const currCounter = await Counter.findOne({username: list[choice].username}).exec();
+        if (currCounter != null) {
+            newCounter = currCounter.count + 1;
+        } else {
+            newCounter = 1;
+        }
+        await Counter.findOneAndUpdate({username: list[choice].username}, {count: newCounter}, {upsert: true});
+        message.reply(`This month's choice is ${list[choice].username}'s choice: ${list[choice].book} by ${list[choice].author}!`);
     } else if (command === 'history') {
         const history = await History.find({}).exec();
         var reply = 'So far we\'ve read:\n'
