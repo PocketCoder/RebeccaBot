@@ -36,7 +36,7 @@ client.on("messageCreate", async message => {
         const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
         Suggestion.findOneAndUpdate({userId: message.author.id}, {username: message.author.username, book: title, author: author}, {upsert: true}, (e) => {
             if (e === null) {
-                message.reply('Got it, saved it.');
+                message.reply('What a wonderful choice! Let me just make a note of that.');
             } else {
                 message.reply(e);
             }
@@ -46,7 +46,7 @@ client.on("messageCreate", async message => {
         var reply = 'Well, from what I can see we have:\n';
         list.forEach((e, i) => {
             i += 1;
-            reply += `[${i}] ${e.book} by ${e.author}, suggested by ${e.username}\n`;
+            reply += `${i}) ${e.book} by ${e.author}, suggested by ${e.username}\n`;
         });
         message.reply(reply);
     } else if (command === 'shuffle') {
@@ -69,7 +69,7 @@ client.on("messageCreate", async message => {
             newCounter = 1;
         }
         await Counter.findOneAndUpdate({username: list[choice].username}, {count: newCounter}, {upsert: true});
-        message.reply(`This month's choice is ${list[choice].username}'s choice: ${list[choice].book} by ${list[choice].author}!`);
+        message.reply(`This month's book is ${list[choice].username}'s choice: ${list[choice].book} by ${list[choice].author}!`);
     } else if (command === 'history') {
         const history = await History.find({}).exec();
         var reply = 'So far we\'ve read:\n'
