@@ -6,7 +6,8 @@ A Discord bot to help the running of a Book Club.
 | ------- | ----------- |
 | `!suggestion <book title> by <author>` | Accepts users' suggestions; 1/user; new suggestions overwrite old ones. |
 | `!list` | Replies with a numbered list of all the current suggestions made by users. |
-| `!history` | Replies with a list of the books chosen in the past, on what date, by which user. | 
+| `!history` | Replies with a list of the books chosen in the past, on what date, by which user. |
+| `!shuffle` | Selects a new book of the month. Saves that book to the history list. Increases counter of number of times a user's suggestion has been picked. |
 
 
 ### Features to add
@@ -28,8 +29,13 @@ A Discord bot to help the running of a Book Club.
     - [ ] Guess the book, line by line the synopsis is revealed. Points for the earlier you get it.
 - [ ] Allow for users to have two suggestions in the pile.
     - [ ] Let the number of suggestions per user be a setting set by the mod. `!setting suggestions <number>`
-- [ ] Move to a SQL database (cba rn, I've started so I'll finish)
+- [ ] 
 
 ## General To Do
+- [ ] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
 - [ ] Tidy up index.js; individual files for each command.
     - From YouTube series by CodeLyon
+- [ ] Move to UserIds and not usernames.
+- [ ] Create an error handler function.
+    - Sends error to the mod. Records error in a database.
+- [ ] Move to a SQL database (cba rn, I've started so I'll finish)
