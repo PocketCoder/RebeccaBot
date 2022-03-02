@@ -8,6 +8,8 @@ A Discord bot to help the running of a Book Club.
 | `!list` | Replies with a numbered list of all the current suggestions made by users. | `Well, from what I can see we have these wonderful choices: <book title> by <author>, suggested by <username>` |
 | `!history` | Replies with a list of the books chosen in the past, on what date, by which user. | `So far we've read: <book title> by <author> (<MM/YYYY read> \| <username>)` |
 | `!shuffle` | Selects a new book of the month. Saves that book to the history list. Increases counter of number of times a user's suggestion has been picked. | `This month's book is <username>'s choice: <book title> by <author>!` |
+| `!deadline` | Returns the deadline to read the next book. | `The next meeting will be on **<DD/MM>**. That gives you **<days> days**.` |
+| `!deadline <DD/MM/YY(YY)>` | Sets the new deadline. | `Ok, listen up @everyone. You've got until **<DD/MM>** to read this month's book. Ready...Set...Go!` |
 
 
 ### Features to add
@@ -15,8 +17,8 @@ A Discord bot to help the running of a Book Club.
     - [ ] Replies with a blurb of the book
     - [ ] Alerts user if their new suggestion has already been read.
 - [x] Returns a numbered list of all the suggestions made. `!list`
-- [ ] Replies with the deadline to finish this month's book. `!deadline`
-    - [ ] Deadline can be updated. `!deadline <date> [DD/MM/YY]`
+- [x] Replies with the deadline to finish this month's book. `!deadline`
+    - [x] Deadline can be updated. `!deadline <date> [DD/MM/YY]`
 - [ ] Replies with a synopsis of the passed book. `!synopsis <!list number> || <book title> by <author>`
 - [x] Returns a new book of the month. `!shuffle`
 - [x] Returns a list of all books read in the past. `!history`
