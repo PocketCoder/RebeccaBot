@@ -5,7 +5,8 @@ A Discord bot to help the running of a Book Club.
 | Command | Description |
 | ------- | ----------- |
 | `!suggestion <book title> by <author>` | Accepts users' suggestions; 1/user; new suggestions overwrite old ones. |
-| `!list` | Returns a numbered list of all the current suggestions made by users |
+| `!list` | Replies with a numbered list of all the current suggestions made by users. |
+| `!history` | Replies with a list of the books chosen in the past, on what date, by which user. | 
 
 
 ### Features to add
@@ -17,7 +18,7 @@ A Discord bot to help the running of a Book Club.
 - [ ] Replies with a synopsis of the passed book. `!synopsis <!list number> || <book title> by <author>`
 - [x] Returns a new book of the month. `!shuffle`
 - [ ] Alerts user if their new suggestion has already been read.
-- [ ] Returns a list of all books read in the past. `!history`
+- [x] Returns a list of all books read in the past. `!history`
 - [ ] Replies with links to buy the current book of the month. `!buy`
 
 #### Future feature ideas

@@ -3,6 +3,7 @@ const config = require('./config.json');
 const mongoose = require('mongoose');
 
 const Suggestion = require('./models/suggestion.js');
+const History = require('./models/history.js');
 
 const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
 const prefix = "!";
@@ -39,13 +40,34 @@ client.on("messageCreate", async message => {
                 message.reply(e);
             }
         });
-        // const newSuggest = await Suggestion.create({userId: message.author.id, book: title, author: author});
-        // const saveSuggest = await newSuggest.save();
     } else if (command === 'list') {
         const list = await Suggestion.find({}).exec();
         var reply = 'Well, from what I can see we have:\n';
-        list.forEach((e) => {
-            reply += `1. ${e.book} by ${e.author}, suggested by ${e.username}\n`;
+        list.forEach((e, i) => {
+            i += 1;
+            reply += `[${i}] ${e.book} by ${e.author}, suggested by ${e.username}\n`;
+        });
+        message.reply(reply);
+    } else if (command === 'shuffle') {
+        // TODO: Make a Mod only command
+        const list = await Suggestion.find({}).exec();
+        const choice = Math.floor(Math.random() * list.length);
+        message.reply(`This month's choice is ${list[choice].username}'s choice: ${list[choice].book} by ${list[choice].author}!`);
+        const date = `${new Date().getMonth().toString()}/${new Date().getFullYear().toString()}`;
+        const bom = new History({
+            username: list[choice].username,
+            book: list[choice].book,
+            author: list[choice].author,
+            date: date
+        });
+        await bom.save();
+        // TODO: Make date pretty.
+        // TODO: Increase user counter.
+    } else if (command === 'history') {
+        const history = await History.find({}).exec();
+        var reply = 'So far we\'ve read:\n'
+        history.forEach((e, i) => {
+            reply += `${e.book} by ${e.author} (${e.date} | ${e.username})\n`
         });
         message.reply(reply);
     }
