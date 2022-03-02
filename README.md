@@ -6,7 +6,7 @@ A Discord bot to help the running of a Book Club.
 | ------- | ----------- | -------- |
 | `!suggestion <book title> by <author>` | Accepts users' suggestions; 1/user; new suggestions overwrite old ones. | `What a wonderful choice! Let me just make a note of that.` |
 | `!list` | Replies with a numbered list of all the current suggestions made by users. | `Well, from what I can see we have: <book title> by <author>, suggested by <username>` |
-| `!history` | Replies with a list of the books chosen in the past, on what date, by which user. | `So far we've read: <book title> by <author> (<MM/YYYY read> | <username>)` |
+| `!history` | Replies with a list of the books chosen in the past, on what date, by which user. | `So far we've read: <book title> by <author> (<MM/YYYY read> \| <username>)` |
 | `!shuffle` | Selects a new book of the month. Saves that book to the history list. Increases counter of number of times a user's suggestion has been picked. | `This month's book is <username>'s choice: <book title> by <author>!` |
 
 
