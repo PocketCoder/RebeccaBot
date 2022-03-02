@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/BJ51QrD.jpg" width="100" height="131">
+<img src="https://i.imgur.com/BJ51QrD.jpg" width="110" height="131">
 
 # RebeccaBot
 A Discord bot to help the running of a Book Club.
