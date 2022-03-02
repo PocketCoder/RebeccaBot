@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
 
 const suggestSchema = new mongoose.Schema({
-    userId: {
+    username: {
         type: mongoose.SchemaTypes.String,
         required: true
     },
-    username: mongoose.SchemaTypes.String,
-    book: mongoose.SchemaTypes.String,
-    author: mongoose.SchemaTypes.String
+    book: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    },
+    author: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Suggestion', suggestSchema);
