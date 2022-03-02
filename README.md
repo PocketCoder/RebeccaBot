@@ -42,6 +42,6 @@ A Discord bot to help the running of a Book Club.
     - From YouTube series by CodeLyon
 - [ ] Create an error handler function.
     - Sends error to the mod. Records error in a database.
-- [ ] Move to a SQL database (cba rn, I've started so I'll finish)
+- [ ] Move to a SQL database (cba rn, I've started with mongoDB so I'll finish)
 - [ ] Arrays of options of replies to each command.
 - [ ] Special reply for if history/suggestions collections is empty.
