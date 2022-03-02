@@ -61,7 +61,6 @@ client.on("messageCreate", async message => {
             date: date
         });
         await bom.save();
-        // TODO: Make date pretty.
         // TODO: Increase user counter.
     } else if (command === 'history') {
         const history = await History.find({}).exec();

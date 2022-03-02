@@ -12,12 +12,12 @@ A Discord bot to help the running of a Book Club.
 ### Features to add
 - [x] Accepts users' suggestions; 1/user/month; new suggestions overwrite old ones. `!suggestion <book title> by <author>`
     - [ ] Replies with a blurb of the book
+    - [ ] Alerts user if their new suggestion has already been read.
 - [x] Returns a numbered list of all the suggestions made. `!list`
 - [ ] Keeps track of the deadline to finish this month's book. `!deadline`
     - [ ] Deadline can be updated. `!deadline <date> [DD/MM/YY]`
 - [ ] Replies with a synopsis of the passed book. `!synopsis <!list number> || <book title> by <author>`
 - [x] Returns a new book of the month. `!shuffle`
-- [ ] Alerts user if their new suggestion has already been read.
 - [x] Returns a list of all books read in the past. `!history`
 - [ ] Replies with links to buy the current book of the month. `!buy`
 
@@ -28,5 +28,7 @@ A Discord bot to help the running of a Book Club.
     - [ ] Guess the book, line by line the synopsis is revealed. Points for the earlier you get it.
 - [ ] Allow for users to have two suggestions in the pile.
     - [ ] Let the number of suggestions per user be a setting set by the mod. `!setting suggestions <number>`
-    - How to decide which gets overwritten if they pass more than allowed?
-    - ("Limit reached! Which would you like to replace? (Followed by a numbered list of their suggestions.)" DM from the bot?)
+
+## General To Do
+- [ ] Tidy up index.js; individual files for each command.
+    - From YouTube series by CodeLyon
