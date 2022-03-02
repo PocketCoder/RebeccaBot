@@ -15,7 +15,7 @@ A Discord bot to help the running of a Book Club.
 ### Features to add
 - [x] Accepts users' suggestions; 1/user/month; new suggestions overwrite old ones. `!suggestion <book title> by <author>`
     - [ ] Replies with a blurb of the book
-    - [ ] Alerts user if their new suggestion has already been read.
+    - [x] Alerts user if their new suggestion has already been read.
 - [x] Returns a numbered list of all the suggestions made. `!list`
 - [x] Replies with the deadline to finish this month's book. `!deadline`
     - [x] Deadline can be updated. `!deadline <date> [DD/MM/YY]`
