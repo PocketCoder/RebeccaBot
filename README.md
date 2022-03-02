@@ -37,7 +37,7 @@ A Discord bot to help the running of a Book Club.
 
 ## General To Do
 - [x] ASAP: Move to UserIds and not usernames.
-- [ ] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
+- [x] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
 - [ ] Tidy up index.js; individual files for each command.
     - From YouTube series by CodeLyon
 - [ ] Create an error handler function.
