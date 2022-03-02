@@ -10,7 +10,7 @@ const historySchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.String,
         required: true
     },
-    month: {
+    date: {
         type: mongoose.SchemaTypes.Date,
         required: true
     }
