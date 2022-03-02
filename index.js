@@ -34,7 +34,7 @@ client.on("messageCreate", async message => {
     if (command === 'suggestion') {
         const title = args.slice(0, args.indexOf('by')).join(" ");
         const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
-        Suggestion.findOneAndUpdate({username: message.author.username}, {username: message.author.username, book: title, author: author}, {upsert: true}, (e) => {
+        Suggestion.findOneAndUpdate({userId: message.author.id}, {userId: message.author.id, username: message.author.username, book: title, author: author}, {upsert: true}, (e) => {
             if (e === null) {
                 message.reply('What a wonderful choice! Let me just make a note of that.');
             } else {
@@ -52,9 +52,13 @@ client.on("messageCreate", async message => {
     } else if (command === 'shuffle') {
         // TODO: Make a Mod only command
         const list = await Suggestion.find({}).exec();
+        // Find user counters.
+        // Compare user counters, lowest to highest.
+        // Choice is out of the lowest.
         const choice = Math.floor(Math.random() * list.length);
         const date = `${new Date().getMonth().toString()}/${new Date().getFullYear().toString()}`;
         const bom = new History({
+            userId: list[choice].userId,
             username: list[choice].username,
             book: list[choice].book,
             author: list[choice].author,
@@ -62,13 +66,13 @@ client.on("messageCreate", async message => {
         });
         await bom.save();
         var newCounter;
-        const currCounter = await Counter.findOne({username: list[choice].username}).exec();
+        const currCounter = await Counter.findOne({userId: list[choice].userId}).exec();
         if (currCounter != null) {
             newCounter = currCounter.count + 1;
         } else {
             newCounter = 1;
         }
-        await Counter.findOneAndUpdate({username: list[choice].username}, {count: newCounter}, {upsert: true});
+        await Counter.findOneAndUpdate({userId: list[choice].userId}, {count: newCounter}, {upsert: true});
         message.reply(`This month's book is ${list[choice].username}'s choice: ${list[choice].book} by ${list[choice].author}!`);
     } else if (command === 'history') {
         const history = await History.find({}).exec();

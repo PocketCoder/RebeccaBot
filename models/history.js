@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 
 const historySchema = new mongoose.Schema({
-    username: mongoose.SchemaTypes.String,
+    userId: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    },
+    username: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    },
     book: {
         type: mongoose.SchemaTypes.String,
         required: true

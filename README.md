@@ -34,10 +34,10 @@ A Discord bot to help the running of a Book Club.
     - [ ] Reply with other books by the same author. `!also <author name>`
 
 ## General To Do
+- [x] ASAP: Move to UserIds and not usernames.
 - [ ] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
 - [ ] Tidy up index.js; individual files for each command.
     - From YouTube series by CodeLyon
-- [ ] Move to UserIds and not usernames.
 - [ ] Create an error handler function.
     - Sends error to the mod. Records error in a database.
 - [ ] Move to a SQL database (cba rn, I've started so I'll finish)
