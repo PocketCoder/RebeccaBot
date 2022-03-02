@@ -1,4 +1,4 @@
-![Rebecca's face from original film poster](https://imgur.com/BJ51QrD) # RebeccaBot
+![Rebecca's face from original film poster](https://i.imgur.com/BJ51QrD.jpg) # RebeccaBot
 A Discord bot to help the running of a Book Club.
 
 ## Current Features
