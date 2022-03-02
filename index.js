@@ -34,7 +34,7 @@ client.on("messageCreate", async message => {
     if (command === 'suggestion') {
         const title = args.slice(0, args.indexOf('by')).join(" ");
         const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
-        Suggestion.findOneAndUpdate({userId: message.author.id}, {username: message.author.username, book: title, author: author}, {upsert: true}, (e) => {
+        Suggestion.findOneAndUpdate({username: message.author.username}, {username: message.author.username, book: title, author: author}, {upsert: true}, (e) => {
             if (e === null) {
                 message.reply('What a wonderful choice! Let me just make a note of that.');
             } else {
@@ -43,7 +43,7 @@ client.on("messageCreate", async message => {
         });
     } else if (command === 'list') {
         const list = await Suggestion.find({}).exec();
-        var reply = 'Well, from what I can see we have:\n';
+        var reply = 'Well, from what I can see we have these wonderful choices:\n';
         list.forEach((e, i) => {
             i += 1;
             reply += `${i}) ${e.book} by ${e.author}, suggested by ${e.username}\n`;
