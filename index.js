@@ -9,6 +9,8 @@ const History = require('./models/historySchema.js');
 const Counter = require('./models/counterSchema.js');
 const Deadline = require('./models/deadlineSchema.js');
 
+const Synopsis = require('./booksAPI');
+
 const client = new Discord.Client({
     intents: ["GUILDS", "GUILD_MESSAGES"]
 });
@@ -53,6 +55,36 @@ client.on("messageCreate", async message => {
         client.commands.get('history').execute(message, args);
     } else if (command === 'deadline') {
         client.commands.get('deadline').execute(message, args);
+    } else if (command === 'synopsis') {
+        const title = args.slice(0, args.indexOf('by')).join(" ");
+        const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
+        const res = Synopsis(title, author, (err, data) => {
+            if (err) {
+                return console.log(err);
+            } else {
+                const synopsisEmbed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setTitle(`A synopsis for ${data.title} by ${data.author}`)
+                    //.setURL(data.url)
+                    .setAuthor({
+                        name: 'Rebecca',
+                        iconURL: 'https://i.imgur.com/DClYnjk.jpg',
+                        url: 'https://110399.xyz'
+                    })
+                    .setDescription(data.desc)
+                    //.setThumbnail(data.cover)
+                    .setImage(data.cover)
+                    .addField('\u200B', `[Link to Google Books page](${data.url})`)
+                    .setTimestamp()
+                    .setFooter({
+                        text: 'Is this wrong? Message @lactaselacking'
+                    });
+
+                message.channel.send({
+                    embeds: [synopsisEmbed]
+                });
+            }
+        });
     }
 });
 

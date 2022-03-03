@@ -10,6 +10,7 @@ A Discord bot to help the running of a Book Club.
 | `!shuffle` | Selects a new book of the month. Saves that book to the history list. Increases counter of number of times a user's suggestion has been picked. | `This month's book is <username>'s choice: <book title> by <author>!` |
 | `!deadline` | Returns the deadline to read the next book. | `The next meeting will be on **<DD/MM>**. That gives you **<days> days**.` |
 | `!deadline <DD/MM/YY(YY)>` | Sets the new deadline. | `Ok, listen up @everyone. You've got until **<DD/MM>** to read this month's book. Ready...Set...Go!` |
+| `!synopsis <book title> by <author>` | Replies with an embed with a description of the book and the cover. | `A synopsis for <book title> by <authro> \n Description \n Book cover \n Link to see more on Google books` |
 
 
 ### Primary Functionality
@@ -22,11 +23,13 @@ A Discord bot to help the running of a Book Club.
 - [x] Returns a list of all books read in the past. `!history`
 
 #### Future feature ideas
+- [ ] Bot settings for certain messages to be sent in certain channels. (e.g. book of the month reply to be sent in a specific channel)
+    - [ ] `!setting shuffle-reply channelId`
 - [ ] Slash commands
 - [x] Mod-only commands
 - [x] Regex `!deadline` command (DD/MM/(YY)YY format).
 - [x] Regex `!suggestion` command (text " by " text).
-- [ ] Replies with a synopsis of the passed book. `!synopsis <!list number> || <book title> by <author>`
+- [x] Replies with a synopsis of the passed book. `!synopsis <book title> by <author>`
 - [ ] New suggestions are replied to with a blurb of the book
 - [ ] Replies with links to buy the current book of the month. `!buy`
 - [ ] Can be set to send a book quote in a thread (daily, weekly...)
