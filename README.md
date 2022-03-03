@@ -38,8 +38,7 @@ A Discord bot to help the running of a Book Club.
 ## General To Do
 - [x] ASAP: Move to UserIds and not usernames.
 - [x] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
-- [ ] Tidy up index.js; individual files for each command.
-    - From YouTube series by CodeLyon
+- [x] Tidy up index.js; individual files for each command.
 - [ ] Create an error handler function.
     - Sends error to the mod. Records error in a database.
 - [ ] Move to a SQL database (cba rn, I've started with mongoDB so I'll finish)
