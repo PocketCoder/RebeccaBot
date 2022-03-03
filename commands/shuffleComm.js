@@ -2,58 +2,64 @@ const Suggestion = require('../models/suggestionSchema.js');
 const History = require('../models/historySchema.js');
 const Counter = require('../models/counterSchema.js');
 const Deadline = require('../models/deadlineSchema.js');
+const { listenerCount } = require('../models/suggestionSchema.js');
 
 module.exports = {
     name: 'shuffle',
     description: '',
     async execute(message, args) {
-                // TODO: Make a Mod only command
-        // TODO: Cycle through suggestions:
-            // TODO: If user has no counter, make one and make zero.
-            // TODO: Else, get counter
-            // TODO: ARRAY: Get lowest counter number and get others with that number
-            // TODO: Random from that array
-            const list = await Suggestion.find({}).exec();
-            const counts = await Counter.find({}).exec();
-            /*
-                Returns:
-                [
-                    {
-                        _id: new ObjectId("621ff25129cb70d41e02d2b5"),
-                        userId: '940629674831253534',
-                        __v: 0,
-                        count: 2
-                    },
-                    {
-                        _id: new ObjectId("621ff40e29cb70d41e088684"),
-                        userId: '2',
-                        __v: 0,
-                        count: 1
-                    }
-                ]
-            */
-           var lowestCountUsers = [];
-           counts.forEach(e => {
-               // e: element
-           });
-            const choice = Math.floor(Math.random() * list.length);
-            const date = `${new Date().getMonth().toString()}/${new Date().getFullYear().toString()}`;
-            const bom = new History({
-                userId: list[choice].userId,
-                username: list[choice].username,
-                book: list[choice].book,
-                author: list[choice].author,
-                date: date
-            });
-            await bom.save();
-            var newCounter;
-            const currCounter = await Counter.findOne({userId: list[choice].userId}).exec();
-            if (currCounter != null) {
-                newCounter = currCounter.count + 1;
-            } else {
-                newCounter = 1;
+        // TODO: Make a Mod only command
+        // TODO: Make it cleaner. There has to be a better way.
+        const list = await Suggestion.find({}).exec();
+        const counters = await Counter.find({}).exec();
+        var lowest = counters[0].count;
+        await counters.forEach(e => {
+            var curr = e.count;
+            if (curr < lowest) {
+                lowest = curr;
             }
-            await Counter.findOneAndUpdate({userId: list[choice].userId}, {username: list[choice].username, count: newCounter}, {upsert: true});
-            message.reply(`This month's book is ${list[choice].username}'s choice: ${list[choice].book} by ${list[choice].author}!`);
+        });
+        var lowArray = [];
+        await counters.forEach(e => {
+            if (e.count === lowest) {
+                lowArray.push(e);
+            }
+        });
+        var choices = [];
+        await list.forEach((e, i) => {
+            lowArray.forEach(l => {
+                if (e.userId === l.userId) {
+                    choices.push(e);
+                }
+            })
+        });
+        const choice = Math.floor(Math.random() * choices.length);
+        const date = `${new Date().getMonth().toString()}/${new Date().getFullYear().toString()}`;
+        const bom = new History({
+            userId: choices[choice].userId,
+            username: choices[choice].username,
+            book: choices[choice].book,
+            author: choices[choice].author,
+            date: date
+        });
+        await bom.save();
+        var newCounter;
+        const currCounter = await Counter.findOne({
+            userId: choices[choice].userId
+        }).exec();
+        if (currCounter != null) {
+            newCounter = currCounter.count + 1;
+        } else {
+            newCounter = 1;
+        }
+        await Counter.findOneAndUpdate({
+            userId: choices[choice].userId
+        }, {
+            username: choices[choice].username,
+            count: newCounter
+        }, {
+            upsert: true
+        });
+        message.reply(`This month's book is ${choices[choice].username}'s choice: ${choices[choice].book} by ${choices[choice].author}!`);
     }
 }
