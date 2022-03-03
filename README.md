@@ -23,7 +23,9 @@ A Discord bot to help the running of a Book Club.
 
 #### Future feature ideas
 - [ ] Slash commands
-- [ ] Mod-only commands
+- [x] Mod-only commands
+- [ ] Regex `!deadline` command (DD/MM/(YY)YY format).
+- [ ] Regex `!suggestion` command (text " by " text).
 - [ ] Replies with a synopsis of the passed book. `!synopsis <!list number> || <book title> by <author>`
 - [ ] New suggestions are repleid to with a blurb of the book
 - [ ] Replies with links to buy the current book of the month. `!buy`
