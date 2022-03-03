@@ -56,3 +56,8 @@ client.on("messageCreate", async message => {
 });
 
 client.login(config.token || process.env.token);
+
+const http = require("http");
+setInterval(() => {
+    http.get("https://rebecca-discord-bot.herokuapp.com/git ");
+}, 25*60000); // Ping every 25 minutes
