@@ -58,7 +58,22 @@ client.on("messageCreate", async message => {
 
 client.login(process.env.token);
 
-const http = require("http");
+const https = require("http");
 setInterval(() => {
-    http.get("https://rebecca-discord-bot.herokuapp.com/git ");
-}, 25*60000); // Ping every 25 minutes
+    const options = {
+        hostname: 'https://rebecca-discord-bot.herokuapp.com/',
+        port: process.env.PORT || 5000,
+        path: '/',
+        method: 'GET'
+    };
+    const req = https.request(options, res => {
+        console.log(`statusCode: ${res.statusCode}`);
+        res.on('data', d => {
+            process.stdout.write(d);
+        });
+    });
+    req.on('error', error => {
+        console.error(error)
+    });
+    req.end();
+}, 25 * 60000); // Ping every 25 minutes
