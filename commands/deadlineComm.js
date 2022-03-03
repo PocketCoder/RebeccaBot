@@ -7,19 +7,19 @@ module.exports = {
     name: 'deadline',
     description: '',
     async execute(message, args) {
-        if (message.member.role.cache.has('948939449243402241')) {
-            if (args.length === 0) {
-                const deadline = await Deadline.find({});
-                if (deadline[0] != null) {
-                    const dc = deadline[0].dateString.split('/');
-                    // TODO: Fix days until.
-                    const until = deadline[0].date.getTime() - new Date().getTime();
-                    const days = Math.floor(until / (1000 * 3600 * 24));
-                    message.reply(`The next meeting will be on **${dc[0]}/${dc[1]}**. That gives you **${days} days**.`);
-                } else {
-                    message.reply("Hmmm, there doesn't seem to be a deadline yet. Listen out for further announcements from the moderator. In the meantime, keep reading!");
-                }
+        if (args.length === 0) {
+            const deadline = await Deadline.find({});
+            if (deadline[0] != null) {
+                const dc = deadline[0].dateString.split('/');
+                // TODO: Fix days until.
+                const until = deadline[0].date.getTime() - new Date().getTime();
+                const days = Math.floor(until / (1000 * 3600 * 24));
+                message.reply(`The next meeting will be on **${dc[0]}/${dc[1]}**. That gives you **${days} days**.`);
             } else {
+                message.reply("Hmmm, there doesn't seem to be a deadline yet. Listen out for further announcements from the moderator. In the meantime, keep reading!");
+            }
+        } else {
+            if (message.member.roles.cache.has('948939449243402241')) {
                 const contents = await Deadline.find({});
                 contents.forEach(async (o) => {
                     await Deadline.deleteOne({
@@ -37,9 +37,9 @@ module.exports = {
                     date: deadline,
                     dateString: args[0]
                 }).save();
+            } else {
+                message.reply('Sorry, you don\'t have permission to do that.');
             }
-        } else {
-            message.reply('Sorry, you don\'t have permission to do that.');
         }
     }
 }
