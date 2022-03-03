@@ -7,6 +7,10 @@ module.exports = {
     name: 'suggestion',
     description: 'Accepts users\' suggestions for the next book of the month. 1 per user; new suggestions overwrite old ones.',
     async execute(message, args) {
+        if (args.isEmpty) {
+            const userSuggest = await Suggestion.findOne({userId: message.author.id}).exec();
+            message.reply(`Your current suggestion is ${userSuggest.book} by ${userSuggest.author}.`);
+        }
         const title = args.slice(0, args.indexOf('by')).join(" ");
         const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
         const hist = await History.findOne({

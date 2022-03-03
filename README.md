@@ -22,6 +22,8 @@ A Discord bot to help the running of a Book Club.
 - [x] Returns a list of all books read in the past. `!history`
 
 #### Future feature ideas
+- [ ] Slash commands
+- [ ] Mod-only commands
 - [ ] Replies with a synopsis of the passed book. `!synopsis <!list number> || <book title> by <author>`
 - [ ] New suggestions are repleid to with a blurb of the book
 - [ ] Replies with links to buy the current book of the month. `!buy`
@@ -39,6 +41,7 @@ A Discord bot to help the running of a Book Club.
 - [x] ASAP: Move to UserIds and not usernames.
 - [x] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
 - [x] Tidy up index.js; individual files for each command.
+- [x] If `!suggestion` is empty, return the user's current suggestion.
 - [ ] Create an error handler function.
     - Sends error to the mod. Records error in a database.
 - [ ] Move to a SQL database (cba rn, I've started with mongoDB so I'll finish)
