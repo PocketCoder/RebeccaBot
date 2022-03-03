@@ -1,5 +1,6 @@
+require('dotenv').config();
+
 const Discord = require('discord.js');
-const config = require('./config.json');
 const mongoose = require('mongoose');
 const fs = require('fs');
 
@@ -25,7 +26,7 @@ for (const file of commandFiles) {
 client.once("ready", (e) => {
     console.log("She is awake.");
 
-    mongoose.connect(config.MDBsrv || process.env.MDBsrv, {
+    mongoose.connect(process.env.MDBsrv, {
         //useNewUrlParser = true,
         //useUnifiedTopology = true,
         //useFindAndModify = false
@@ -55,7 +56,7 @@ client.on("messageCreate", async message => {
     }
 });
 
-client.login(config.token || process.env.token);
+client.login(process.env.token);
 
 const http = require("http");
 setInterval(() => {
