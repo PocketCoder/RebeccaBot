@@ -10,7 +10,7 @@ module.exports = {
     name: 'shuffle',
     description: '',
     async execute(message, args) {
-        if (message.member.roles.cache.has('948939449243402241')) {
+        if (message.member.roles.cache.some(r => r.name === "Mod")) {
             // TODO: Make it cleaner. There has to be a better way.
             const list = await Suggestion.find({}).exec();
             const counters = await Counter.find({}).exec();

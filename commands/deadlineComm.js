@@ -19,7 +19,7 @@ module.exports = {
                 message.reply("Hmmm, there doesn't seem to be a deadline yet. Listen out for further announcements from the moderator. In the meantime, keep reading!");
             }
         } else {
-            if (message.member.roles.cache.has('948939449243402241')) {
+            if (message.member.roles.cache.some(r => r.name === "Mod")) {
                 const contents = await Deadline.find({});
                 contents.forEach(async (o) => {
                     await Deadline.deleteOne({
