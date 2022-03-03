@@ -56,6 +56,8 @@ client.on("messageCreate", async message => {
     } else if (command === 'deadline') {
         client.commands.get('deadline').execute(message, args);
     } else if (command === 'synopsis') {
+        // TODO: Move to own file.
+        // TODO: REGEX test input.
         const title = args.slice(0, args.indexOf('by')).join(" ");
         const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
         const res = Synopsis(title, author, (err, data) => {
@@ -66,11 +68,11 @@ client.on("messageCreate", async message => {
                     .setColor('#0099ff')
                     .setTitle(`A synopsis for ${data.title} by ${data.author}`)
                     //.setURL(data.url)
-                    .setAuthor({
+                    /*.setAuthor({
                         name: 'Rebecca',
                         iconURL: 'https://i.imgur.com/DClYnjk.jpg',
                         url: 'https://110399.xyz'
-                    })
+                    })*/
                     .setDescription(data.desc)
                     //.setThumbnail(data.cover)
                     .setImage(data.cover)
