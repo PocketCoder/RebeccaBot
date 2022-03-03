@@ -22,13 +22,15 @@ module.exports = {
         } else {
             const contents = await Deadline.find({});
             contents.forEach(async (o) => {
-                await Deadline.deleteOne({_id: o._id});
+                await Deadline.deleteOne({
+                    _id: o._id
+                });
             });
             var dc = args[0].split('/');
             dc.map(x => {
                 x = x.valueOf();
             });
-            dc[1] = dc[1]-1; // Because January is 0!
+            dc[1] = dc[1] - 1; // Because January is 0!
             const deadline = new Date(dc[2], dc[1], dc[0]);
             message.reply(`Ok, listen up @everyone. You've got until **${dc[0]}/${dc[1]+1}** to read this month's book. Ready...Set...Go!`);
             await new Deadline({

@@ -8,7 +8,9 @@ const History = require('./models/historySchema.js');
 const Counter = require('./models/counterSchema.js');
 const Deadline = require('./models/deadlineSchema.js');
 
-const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
+const client = new Discord.Client({
+    intents: ["GUILDS", "GUILD_MESSAGES"]
+});
 const prefix = "!";
 
 client.commands = new Discord.Collection();

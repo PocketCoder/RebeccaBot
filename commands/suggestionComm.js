@@ -9,9 +9,20 @@ module.exports = {
     async execute(message, args) {
         const title = args.slice(0, args.indexOf('by')).join(" ");
         const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
-        const hist = await History.findOne({book: title});
+        const hist = await History.findOne({
+            book: title
+        });
         if (hist === null) {
-            Suggestion.findOneAndUpdate({userId: message.author.id}, {userId: message.author.id, username: message.author.username, book: title, author: author}, {upsert: true}, (e) => {
+            Suggestion.findOneAndUpdate({
+                userId: message.author.id
+            }, {
+                userId: message.author.id,
+                username: message.author.username,
+                book: title,
+                author: author
+            }, {
+                upsert: true
+            }, (e) => {
                 if (e === null) {
                     message.reply('What a wonderful choice! Let me just make a note of that.');
                 } else {
