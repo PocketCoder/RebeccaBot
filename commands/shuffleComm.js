@@ -60,7 +60,7 @@ module.exports = {
         }, {
             upsert: true
         });
-        message.reply(`This month's book is ${choices[choice].username}'s choice: ${choices[choice].book} by ${choices[choice].author}!`);
+        message.reply(`@everyone this month’s book is **${choices[choice].book} by ${choices[choice].book}**, which was @${choices[choice].username}’s suggestion!`);
         await Suggestion.deleteOne({userId: choices[choice].userId});
     }
 }
