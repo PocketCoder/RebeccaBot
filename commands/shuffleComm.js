@@ -10,7 +10,7 @@ module.exports = {
     name: 'shuffle',
     description: '',
     async execute(message, args) {
-        if (message.member.roles.cache.some(r => r.name === "Mod" || "manager")) {
+        if (message.member.roles.cache.some(r => r.name === "manager")) {
             // TODO: Make it cleaner. There has to be a better way.
             const list = await Suggestion.find({}).exec();
             const counters = await Counter.find({}).exec();
