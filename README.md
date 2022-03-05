@@ -2,15 +2,16 @@
 A Discord bot to help the running of a Book Club.
 
 ## Current Features
-| Command | Description | Response |
-| ------- | ----------- | -------- |
-| `!suggestion <book title> by <author>` | Accepts users' suggestions; 1/user; new suggestions overwrite old ones. If empty, it returns the user's current suggestion. | `What a wonderful choice! Let me just make a note of that.` ; `Your current suggestion is <book title> by <author>.` |
-| `!list` | Replies with a numbered list of all the current suggestions made by users. | `Well, from what I can see we have these wonderful choices: <book title> by <author>, suggested by <username>` |
-| `!history` | Replies with a list of the books chosen in the past, on what date, by which user. | `So far we've read: <book title> by <author> (<MM/YYYY read> \| <username>)` |
-| `!shuffle` | Selects a new book of the month. Saves that book to the history list. Increases counter of number of times a user's suggestion has been picked. | `This month's book is <username>'s choice: <book title> by <author>!` |
-| `!deadline` | Returns the deadline to read the next book. | `The next meeting will be on **<DD/MM>**. That gives you **<days> days**.` |
-| `!deadline <DD/MM/YY(YY)>` | Sets the new deadline. | `Ok, listen up @everyone. You've got until **<DD/MM>** to read this month's book. Ready...Set...Go!` |
-| `!synopsis <book title> by <author>` | Replies with an embed with a description of the book and the cover. | `A synopsis for <book title> by <authro>. Description. Book cover. Published Date; Pages; ISBN 10 & 13.` |
+| Command | Description |
+| ------- | ----------- |
+| `!suggestion <book title> by <author>` | Accepts users' suggestions; 1/user; new suggestions overwrite old ones. If empty, it returns the user's current suggestion. |
+| `!list` | Replies with a list of all the current suggestions made by users. |
+| `!history` | Replies with a list of the books chosen in the past, on what date, by which user. |
+| `!shuffle` | Selects a new book of the month. Saves that book to the history list. Increases counter of number of times a user's suggestion has been picked. |
+| `!deadline` | Returns the deadline to read the month's book. |
+| `!deadline <DD/MM/YY(YY)>` | Sets the new deadline. |
+| `!synopsis <book title> by <author>` | Replies with an embed with a description of the book and the cover. |
+| `Help` | Replies with an embed with a this list of commands. |
 
 
 ### Primary Functionality
