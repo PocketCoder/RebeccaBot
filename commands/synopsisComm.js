@@ -25,7 +25,20 @@ module.exports = {
                     .setDescription(data.desc)
                     //.setThumbnail(data.cover)
                     .setImage(data.cover)
-                    .addField('\u200B', `[Link to Google Books page](${data.url})`)
+                    .addFields(
+                        {
+                            name: 'Published',
+                            value: data.pubDate,
+                            inline: true
+                        }, {
+                            name: 'No. Pages',
+                            value: data.pages,
+                            inline: true
+                        }, {
+                            name: 'ISBN',
+                            value: data.isbn,
+                            inline: true
+                        })
                     .setTimestamp()
                     .setFooter({
                         text: 'Is this wrong? Message @lactaselacking'
