@@ -20,7 +20,7 @@ module.exports = {
                 name: '\`!synopsis <book title> by <author>\`',
                 value: 'Replies with a synopsis of the passed book, pulled from Google Books.'
             }, {
-                name: '\`!deadline (<empty> || <date>\`',
+                name: '\`!deadline (<empty> || <date>\)`',
                 value: 'If empty, it replies with the deadline to read this month\'s book.\nMod only: Sets the new deadline.'
             }, {
                 name: '\`!shuffle\`',
