@@ -1,6 +1,6 @@
-const https = require('https');
+const fetch = require('node-fetch');
 
-module.exports = async function(t, a, cb) {
+module.exports = async function(t, a) {
     let retInf = {};
     var title = '',
         author = '';
@@ -12,38 +12,20 @@ module.exports = async function(t, a, cb) {
         }
     }
     for (c in a) {
-        if (t.charAt(c) === ' ') {
+        if (a.charAt(c) === ' ') {
             author += '%20';
         } else {
             author += a.charAt(c);
         }
     }
-    const url = `https://www.googleapis.com/books/v1/volumes?q="${title}"+"${author}"&printType=books&maxResults=1&key=${process.env.bookKey}`;
+    const url = `https://www.googleapis.com/books/v1/volumes?q="${title}"+"${author}"&maxResults=1&key=${process.env.bookKey}`;
 
-    https.get(url, (res) => {
-        let body = '';
-
-        res.on('data', (chunk) => {
-            body += chunk;
-        });
-    
-        res.on('end', () => {
-            try {
-                let json = JSON.parse(body);
-                retInf.url = json.items[0].volumeInfo.infoLink;
-                retInf.title = t;
-                retInf.author = a;
-                retInf.desc = json.items[0].volumeInfo.description;
-                retInf.cover = json.items[0].volumeInfo.imageLinks.thumbnail;
-
-                cb(null, retInf);
-            } catch (error) {
-                console.error(error.message);
-                cb(error);
-            };
-        });
-    
-    }).on('error', (error) => {
-        console.error(error.message);
-    });
+    const data = await fetch(url).catch(e => console.log(e));
+    const json = await data.json();
+    retInf.url = json.items[0].volumeInfo.infoLink;
+    retInf.title = t;
+    retInf.author = a;
+    retInf.desc = json.items[0].volumeInfo.description;
+    retInf.cover = json.items[0].volumeInfo.imageLinks.thumbnail;
+    return retInf;
 }
