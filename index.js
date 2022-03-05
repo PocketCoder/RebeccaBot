@@ -55,6 +55,8 @@ client.on("messageCreate", async message => {
         client.commands.get('deadline').execute(message, args);
     } else if (command === 'synopsis') {
         client.commands.get('synopsis').execute(message, args);
+    } else if (command === 'say') {
+        message.reply(`I love you, too, ${message.author.username}`);
     }
 });
 
