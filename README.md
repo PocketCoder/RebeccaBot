@@ -44,6 +44,7 @@ A Discord bot to help the running of a Book Club.
 - [ ] Add anticipation to the shuffling. A count down or something.
 - [ ] Reply with author info. `!author <author name>`
     - [ ] Reply with other books by the same author. `!also <author name>`
+- [ ] Add `!help <command>` for help with a specific command.
 
 ## General To Do
 - [x] ASAP: Move to UserIds and not usernames.
