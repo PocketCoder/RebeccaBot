@@ -6,7 +6,7 @@ module.exports = {
     description: 'Replies with an embed with a description of the book and the cover.',
     async execute(message, args) {
         if (args.length === 0) {
-            message.reply('Please try again and add some information! \`<book title> by <book author>\`');
+            message.reply('Please try again and add some information! \`!synopsis <book title> by <book author>\`');
         } else {
             const sugReg = new RegExp(/((\w\s)?(\w)+)+(\s\w[by]\s)((\w)+(\s\w)?)+/g);
             if (sugReg.test(args.join(" "))) {
