@@ -23,8 +23,9 @@ A Discord bot to help the running of a Book Club.
 - [x] Returns a list of all books read in the past. `!history`
 
 #### Future feature ideas
+- [ ] Add an ability to add everyone's birthdays, sends a message on someone's birthday.
 - [ ] Bot settings for certain messages to be sent in certain channels. (e.g. book of the month reply to be sent in a specific channel)
-    - [ ] `!setting shuffle-reply channelId`
+    - [ ] `!set shuffle-reply channelId`
 - [ ] Slash commands
 - [x] Mod-only commands
 - [x] Regex `!deadline` command (DD/MM/(YY)YY format).
