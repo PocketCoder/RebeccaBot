@@ -10,7 +10,7 @@ A Discord bot to help the running of a Book Club.
 | `!shuffle` | Selects a new book of the month. Saves that book to the history list. Increases counter of number of times a user's suggestion has been picked. | `This month's book is <username>'s choice: <book title> by <author>!` |
 | `!deadline` | Returns the deadline to read the next book. | `The next meeting will be on **<DD/MM>**. That gives you **<days> days**.` |
 | `!deadline <DD/MM/YY(YY)>` | Sets the new deadline. | `Ok, listen up @everyone. You've got until **<DD/MM>** to read this month's book. Ready...Set...Go!` |
-| `!synopsis <book title> by <author>` | Replies with an embed with a description of the book and the cover. | `A synopsis for <book title> by <authro> \n Description \n Book cover \n Link to see more on Google books` |
+| `!synopsis <book title> by <author>` | Replies with an embed with a description of the book and the cover. | `A synopsis for <book title> by <authro>. Description. Book cover. Published Date; Pages; ISBN 10 & 13.` |
 
 
 ### Primary Functionality
