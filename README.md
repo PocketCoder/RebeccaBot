@@ -24,36 +24,36 @@ A Discord bot to help the running of a Book Club.
 - [x] Returns a list of all books read in the past. `!history`
 
 #### Future feature ideas
-- [ ] Add an ability to add everyone's birthdays, sends a message on someone's birthday.
-- [ ] Bot settings for certain messages to be sent in certain channels. (e.g. book of the month reply to be sent in a specific channel)
-    - [ ] `!set shuffle-reply channelId`
+- [ ] Reply with other books by the same author. `!also <author name>`
+- [ ] Reply with author info. `!author <author name>`
+- [ ] Shortended commands (`!suggestion => !sg`, `!synopsis => !sp`)
 - [ ] Slash commands
-- [x] Mod-only commands
-- [x] Regex `!deadline` command (DD/MM/(YY)YY format).
-- [x] Regex `!suggestion` command (text " by " text).
-- [x] Replies with a synopsis of the passed book. `!synopsis <book title> by <author>`
-    - [ ] Add redundancies.
-- [ ] ? New suggestions are replied to with a blurb of the book
+- [ ] Add `!help <command>` for help with a specific command.
 - [ ] Replies with links to buy the current book of the month, or the passed book. `!buy`
+- [x] Replies with a synopsis of the passed book. `!synopsis <book title> by <author>`
+    - [ ] Add double-checking that it's the right book (title and author match input).
 - [ ] Can be set to send a book quote in a thread (daily, weekly...)
 - [ ] Games to play: `!game`
     - [ ] Ad-libs... (other word related ones, I'm open to ideas.)
     - [ ] Guess the book, line by line the synopsis is revealed. Points for the earlier you get it.
-- [ ] Allow for users to have two suggestions in the pile.
-    - [ ] Let the number of suggestions per user be a setting set by the mod. `!setting suggestions <number>`
 - [ ] Add anticipation to the shuffling. A count down or something.
-- [ ] Reply with author info. `!author <author name>`
-    - [ ] Reply with other books by the same author. `!also <author name>`
-- [ ] Add `!help <command>` for help with a specific command.
-- [ ] Shortended commands (`!suggestion => !sg`, `!synopsis => !sp`)
+- [ ] Add an ability to add everyone's birthdays, sends a message on someone's birthday.
+- [ ] ? New suggestions are replied to with a blurb of the book
+- [ ] Allow for users to have two suggestions in the pile.
+    - [ ] Let the number of suggestions per user be a setting set by the mod. `!set suggestions <number>`
+- [ ] Bot settings for certain messages to be sent in certain channels. (e.g. book of the month reply to be sent in a specific channel)
+    - [ ] `!set shuffle-reply channelId`
+- [x] Mod-only commands
+- [x] Regex `!deadline` command (DD/MM/(YY)YY format).
+- [x] Regex `!suggestion` command (text " by " text).
 
 ## General To Do
-- [x] ASAP: Move to UserIds and not usernames.
-- [x] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
-- [x] Tidy up index.js; individual files for each command.
-- [x] If `!suggestion` is empty, return the user's current suggestion.
 - [ ] Create an error handler function.
     - Sends error to the mod. Records error in a database.
 - [ ] Move to a SQL database (cba rn, I've started with mongoDB so I'll finish)
 - [ ] Arrays of options of replies to each command.
 - [ ] Special reply for if history/suggestions collections is empty.
+- [x] ASAP: Move to UserIds and not usernames.
+- [x] On `!suggestion` command, check against the history to see that it hasn't been chosen before.
+- [x] Tidy up index.js; individual files for each command.
+- [x] If `!suggestion` is empty, return the user's current suggestion.
