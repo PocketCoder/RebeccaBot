@@ -45,6 +45,7 @@ A Discord bot to help the running of a Book Club.
 - [ ] Reply with author info. `!author <author name>`
     - [ ] Reply with other books by the same author. `!also <author name>`
 - [ ] Add `!help <command>` for help with a specific command.
+- [ ] Shortended commands (`!suggestion => !sg`, `!synopsis => !sp`)
 
 ## General To Do
 - [x] ASAP: Move to UserIds and not usernames.
