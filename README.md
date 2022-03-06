@@ -11,7 +11,7 @@ A Discord bot to help the running of a Book Club.
 | `!deadline` | Returns the deadline to read the month's book. |
 | `!deadline <DD/MM/YY(YY)>` | Sets the new deadline. |
 | `!synopsis <book title> by <author>` | Replies with an embed with a description of the book and the cover. |
-| `Help` | Replies with an embed with a this list of commands. |
+| `!help` | Replies with an embed with a this list of commands. |
 
 
 ### Primary Functionality
