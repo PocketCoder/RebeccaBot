@@ -24,7 +24,7 @@ A Discord bot to help the running of a Book Club.
 - [x] Returns a list of all books read in the past. `!history`
 
 #### Future feature ideas
-- [ ] Reply with other books by the same author. `!also <author name>`
+- [x] Reply with other books by the same author. `!also <author name>`
 - [ ] Reply with author info. `!author <author name>`
 - [ ] Shortended commands (`!suggestion => !sg`, `!synopsis => !sp`)
 - [ ] Slash commands

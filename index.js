@@ -55,6 +55,8 @@ client.on("messageCreate", async message => {
         client.commands.get('deadline').execute(message, args);
     } else if (command === 'synopsis') {
         client.commands.get('synopsis').execute(message, args);
+    } else if (command === 'also') {
+        client.commands.get('also').execute(message, args);
     } else if (command === 'help') {
         client.commands.get('help').execute(message, args);
     } else if (command === 'say') {
