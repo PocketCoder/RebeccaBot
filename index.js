@@ -43,7 +43,7 @@ client.on("messageCreate", async message => {
     const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
 
-    if (command === 'suggestion') {
+    if (command === 'suggestion' || 'sg') {
         client.commands.get('suggestion').execute(message, args);
     } else if (command === 'list') {
         client.commands.get('list').execute(message, args);
@@ -51,9 +51,9 @@ client.on("messageCreate", async message => {
         client.commands.get('shuffle').execute(message, args);
     } else if (command === 'history') {
         client.commands.get('history').execute(message, args);
-    } else if (command === 'deadline') {
+    } else if (command === 'deadline' || '!dl') {
         client.commands.get('deadline').execute(message, args);
-    } else if (command === 'synopsis') {
+    } else if (command === 'synopsis' || 'sn') {
         client.commands.get('synopsis').execute(message, args);
     } else if (command === 'also') {
         client.commands.get('also').execute(message, args);

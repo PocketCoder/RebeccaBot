@@ -8,7 +8,7 @@ module.exports = {
             .setTitle('What can I do?')
             .setColor('#B83D43')
             .addFields({
-                name: '\`!suggestion\ (<book title> by <author> || <empty>)`',
+                name: '\`!suggestion (or !sg) (<book title> by <author> || <empty>)`',
                 value: 'Accepts suggestions for the next book of the month.\n1 per user. New suggestions overwrite old ones. If empty, returns your current suggestion.'
             }, {
                 name: '\`!list\`',
@@ -17,13 +17,13 @@ module.exports = {
                 name: '\`!history\`',
                 value: 'Replies with a list of the books chosen in the past, on what date, and by whom.'
             }, {
-                name: '\`!synopsis <book title> by <author>\`',
+                name: '\`!synopsis (or !sn) <book title> by <author>\`',
                 value: 'Replies with a synopsis of the passed book, pulled from Google Books.'
             }, {
                 name: '\`!also <author>\`',
                 value: 'Replies with a list of books by the author, pulled from Google Books.'
             }, {
-                name: '\`!deadline (<empty> || <date>\)`',
+                name: '\`!deadline (or !dl) (<empty> || <date>\)`',
                 value: 'If empty, it replies with the deadline to read this month\'s book.\nMod only: Sets the new deadline.'
             }, {
                 name: '\`!shuffle\`',
