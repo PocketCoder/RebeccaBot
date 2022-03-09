@@ -8,7 +8,7 @@ module.exports = {
             .setTitle('What can I do?')
             .setColor('#B83D43')
             .addFields({
-                name: '\`!suggestion (or !sg) (<book title> by <author> || <empty>)`',
+                name: '\`!suggestion (or !sg) (<book title> by <author> || <empty>)\`',
                 value: 'Accepts suggestions for the next book of the month.\n1 per user. New suggestions overwrite old ones. If empty, returns your current suggestion.'
             }, {
                 name: '\`!list\`',
