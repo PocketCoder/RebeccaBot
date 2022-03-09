@@ -102,6 +102,7 @@ module.exports = {
                     if (json.items[i].volumeInfo.subtitle != undefined) {
                         subtitle = ': ' + json.items[i].volumeInfo.subtitle;
                     }
+                    // TODO: Remove duplicate books.
                     books.push({
                         title: `${json.items[i].volumeInfo.title}${subtitle}`,
                         published: `Published: ${json.items[i].volumeInfo.publishedDate.toString()}`
