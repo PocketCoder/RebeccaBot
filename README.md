@@ -27,7 +27,7 @@ A Discord bot to help the running of a Book Club.
 - [x] Reply with other books by the same author. `!also <author name>`
     - [ ] Remove duplicates from response.
 - [ ] Reply with author info. `!author <author name>`
-- [ ] Shortended commands (`!suggestion => !sg`, `!synopsis => !sp`)
+- [x] Shortended commands (`!suggestion => !sg`, `!synopsis => !sp`)
 - [ ] Slash commands
 - [ ] Add `!help <command>` for help with a specific command.
 - [ ] Replies with links to buy the current book of the month, or the passed book. `!buy`
