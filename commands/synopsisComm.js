@@ -1,4 +1,4 @@
-const Synopsis = require('../booksAPI.js');
+const Books = require('../booksAPI.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
             if (sugReg.test(args.join(" "))) {
                 const title = args.slice(0, args.indexOf('by')).join(" ");
                 const author = args.slice(args.indexOf('by') + 1, args.length).join(" ");
-                const data = await Synopsis(title, author);
+                const data = await Books.Synopsis(title, author);
                 const synopsisEmbed = new Discord.MessageEmbed()
                     .setColor('#0099ff')
                     .setTitle(`A synopsis for ${title} by ${author}`)
