@@ -25,6 +25,7 @@ A Discord bot to help the running of a Book Club.
 
 #### Future feature ideas
 - [x] Reply with other books by the same author. `!also <author name>`
+    - [ ] Remove duplicates from response.
 - [ ] Reply with author info. `!author <author name>`
 - [ ] Shortended commands (`!suggestion => !sg`, `!synopsis => !sp`)
 - [ ] Slash commands
