@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const Discord = require('discord.js');
+const {Client, Collection, Intents} = require('discord.js');
 const mongoose = require('mongoose');
 const fs = require('fs');
 
@@ -9,12 +9,12 @@ const History = require('./models/historySchema.js');
 const Counter = require('./models/counterSchema.js');
 const Deadline = require('./models/deadlineSchema.js');
 
-const client = new Discord.Client({
-    intents: ["GUILDS", "GUILD_MESSAGES"]
+const client = new Client({
+    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS]
 });
 const prefix = "!";
 
-client.commands = new Discord.Collection();
+client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
@@ -23,15 +23,14 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.once("ready", (e) => {
-    console.log("She is awake.");
-
+client.once('ready', (e) => {
+    console.log('She is awake.');
     mongoose.connect(process.env.MDBsrv, {
         //useNewUrlParser = true,
         //useUnifiedTopology = true,
         //useFindAndModify = false
     }).then(() => {
-        console.log("I can see it all.");
+        console.log('I can see it all.');
     }).catch((err) => {
         console.log(err);
     });
@@ -46,7 +45,7 @@ client.on("messageCreate", async message => {
     if (command === 'suggestion' || command === 'sg') {
         client.commands.get('suggestion').execute(message, args);
     } else if (command === 'list') {
-        client.commands.get('list').execute(message, args);
+        client.commands.get('list').execute(message, args, client);
     } else if (command === 'shuffle') {
         client.commands.get('shuffle').execute(message, args);
     } else if (command === 'history') {
